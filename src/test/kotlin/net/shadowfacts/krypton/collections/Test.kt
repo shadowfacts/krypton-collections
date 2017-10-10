@@ -3,7 +3,7 @@ package net.shadowfacts.krypton.collections
 import net.shadowfacts.krypton.DefaultConfiguration
 import net.shadowfacts.krypton.Krypton
 import net.shadowfacts.krypton.pipeline.selector.PipelineSelectorExtension
-import net.shadowfacts.krypton.pipeline.stage.StageRenderEKT
+import net.shadowfacts.krypton.ekt.StageRenderEKT
 import net.shadowfacts.krypton.pipeline.stage.finalstage.FinalStageOutput
 import net.shadowfacts.krypton.util.dependencies.Dependencies
 import java.io.File
