@@ -1,6 +1,8 @@
 package net.shadowfacts.krypton.collections
 
 import net.shadowfacts.krypton.Krypton
+import net.shadowfacts.krypton.collections.pipeline.PipelineLoadDefaultCollections
+import net.shadowfacts.krypton.collections.pipeline.stage.StageLoadCollections
 import net.shadowfacts.krypton.config.Configuration
 import net.shadowfacts.krypton.pipeline.selector.PipelineSelectorExtension
 import net.shadowfacts.krypton.ekt.StageRenderEKT
@@ -25,5 +27,6 @@ fun main(args: Array<String>) {
 		})
 		final = FinalStageOutput()
 	}
+	krypton.addPipeline(PipelineLoadDefaultCollections)
 	krypton.generate()
 }
