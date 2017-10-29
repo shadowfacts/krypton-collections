@@ -2,7 +2,6 @@ package net.shadowfacts.krypton.collections
 
 import net.shadowfacts.krypton.Krypton
 import net.shadowfacts.krypton.collections.pipeline.stage.StageLoadCollections
-import net.shadowfacts.krypton.config.Configuration
 import net.shadowfacts.krypton.pipeline.selector.PipelineSelectorExtension
 import net.shadowfacts.krypton.ekt.pipeline.stage.StageRenderEKT
 import net.shadowfacts.krypton.pipeline.stage.finalstage.FinalStageOutput
@@ -13,10 +12,10 @@ import java.io.File
  * @author shadowfacts
  */
 fun main(args: Array<String>) {
-	val krypton = Krypton(Configuration {
+	val krypton = Krypton {
 		source = File("source")
 		output = File("output")
-	})
+	}
 	krypton.createPipeline {
 		selector = PipelineSelectorExtension("html")
 		addStage(StageLoadCollections(), Dependencies {
