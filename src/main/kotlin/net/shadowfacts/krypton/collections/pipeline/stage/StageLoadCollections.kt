@@ -14,7 +14,7 @@ class StageLoadCollections: Stage() {
 	override fun scan(page: Page) {
 		val collectionId = page.metadata["collection"] as? String
 		if (collectionId != null) {
-			CollectionManager.getOrCreate(id).pages += page
+			CollectionManager.getOrCreate(collectionId).pages += page
 		}
 	}
 
