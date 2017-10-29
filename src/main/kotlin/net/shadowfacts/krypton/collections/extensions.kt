@@ -7,6 +7,6 @@ import net.shadowfacts.krypton.Page
  */
 val Page.collection: Collection
 	get() {
-		val id = metadata["collection"] as? String ?: throw RuntimeException("Attempted to get collection for page $this without specified collection")
+		val id = getMetadata("collection") as? String ?: throw RuntimeException("Attempted to get collection for page $this without specified collection")
 		return CollectionManager.get(id) ?: throw RuntimeException("No collection for id $id")
 	}

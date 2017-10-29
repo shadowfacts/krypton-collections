@@ -1,11 +1,10 @@
 package net.shadowfacts.krypton.collections
 
 import net.shadowfacts.krypton.Krypton
-import net.shadowfacts.krypton.collections.pipeline.PipelineLoadDefaultCollections
 import net.shadowfacts.krypton.collections.pipeline.stage.StageLoadCollections
 import net.shadowfacts.krypton.config.Configuration
 import net.shadowfacts.krypton.pipeline.selector.PipelineSelectorExtension
-import net.shadowfacts.krypton.ekt.StageRenderEKT
+import net.shadowfacts.krypton.ekt.pipeline.stage.StageRenderEKT
 import net.shadowfacts.krypton.pipeline.stage.finalstage.FinalStageOutput
 import net.shadowfacts.krypton.util.dependencies.Dependencies
 import java.io.File
@@ -22,11 +21,10 @@ fun main(args: Array<String>) {
 		selector = PipelineSelectorExtension("html")
 		addStage(StageLoadCollections(), Dependencies {
 		})
-		addStage(StageRenderEKT(null, null, mapOf()), Dependencies {
+		addStage(StageRenderEKT(mapOf()), Dependencies {
 			after += "loadCollections"
 		})
 		final = FinalStageOutput()
 	}
-	krypton.addPipeline(PipelineLoadDefaultCollections)
 	krypton.generate()
 }
